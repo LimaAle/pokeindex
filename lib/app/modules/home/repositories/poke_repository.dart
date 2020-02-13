@@ -1,5 +1,6 @@
 
 import 'package:dio/dio.dart';
+import 'package:intl/intl.dart';
 import 'package:pokindex/app/shared/models/pokemon_model.dart';
 
 class PokeRepository{
@@ -12,7 +13,7 @@ class PokeRepository{
     
     List<PokemonModel> list=[];
     for (var item in (response.data['results'] as List)) {
-      PokemonModel model = PokemonModel(name: item['name']);
+      PokemonModel model = PokemonModel(name: toBeginningOfSentenceCase(item['name']) );
       list.add(model);
     }
     return list;
