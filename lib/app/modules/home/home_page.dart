@@ -62,22 +62,23 @@ class _HomePageState extends State<HomePage> {
                       itemCount: list.length,
                       itemBuilder: (_, index) {
                         return Container(
-                          child: Column(
-                            children: <Widget>[
-                              Text(list[index].name),
-                              Image.asset(
-                                'assets/bulbasaur.png',
-                                fit: BoxFit.fill,
-                                height: 86,
-                                width: 86,
-                              )
-                            ],
-                          ),
-                          padding: EdgeInsets.all(10),
                           margin: EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
                               color: Colors.amber,
                               borderRadius: BorderRadius.circular(20)),
+                          child: Column(
+                            children: <Widget>[
+                              Text(list[index].name),
+                              FractionallySizedBox(
+                                alignment: Alignment.centerRight,
+                                widthFactor: 0.5,
+                                child: Image.asset(
+                                  'assets/bulbasaur.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
+                          ),
                         );
                       });
                 },
